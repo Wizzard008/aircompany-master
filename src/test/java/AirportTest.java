@@ -37,14 +37,14 @@ public class AirportTest {
     public void testGetTransportMilitaryPlanes() {
         Airport airport = new Airport(planes);
         List<MilitaryPlane> transportMilitaryPlanes = airport.getTransportMilitaryPlanes();
-        boolean flag = false;
+        boolean militaryTypeTranport = false;
         for (MilitaryPlane militaryPlane : transportMilitaryPlanes) {
             if ((militaryPlane.getType() == MilitaryType.TRANSPORT)) {
-                flag = true;
+                militaryTypeTranport = true;
                 break;
             }
         }
-        Assert.assertEquals(flag, true);
+        Assert.assertTrue(militaryTypeTranport);
     }
 
     @Test
@@ -77,16 +77,15 @@ public class AirportTest {
     public void testHasAtLeastOneBomberInMilitaryPlanes() {
         Airport airport = new Airport(planes);
         List<MilitaryPlane> bomberMilitaryPlanes = airport.getBomberMilitaryPlanes();
-        boolean flag = false;
+        boolean militaryTypeBomber = false;
         for (MilitaryPlane militaryPlane : bomberMilitaryPlanes) {
             if ((militaryPlane.getType() == MilitaryType.BOMBER)) {
-                flag = true;
+                militaryTypeBomber = true;
             }
             else {
                 Assert.fail("Test failed!");
             }
         }
-        // if not failed
     }
 
     @Test
